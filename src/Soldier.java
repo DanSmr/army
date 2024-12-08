@@ -1,4 +1,4 @@
-public abstract class Soldier implements Defend, Attack{
+public abstract class Soldier{
     String name;
     int damage;
     String type;
@@ -25,17 +25,8 @@ public abstract class Soldier implements Defend, Attack{
         System.out.println("Soldier " + getName() + " here. Type - " + getType());
     }
 
-    @Override
-    public void defend() {
-        System.out.println("Soldier " + getName() + " deals " + getDamage() + " damage");
-    }
-
-    @Override
-    public void attack() {
-        System.out.println("Soldier " + getName() + " deals " + getDamage() + " damage");
-    }
-
 
     public void specialAttack() {
+
     }
 }

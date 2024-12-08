@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Army implements SpecialAbility{
-    List<Soldier> army = new ArrayList<>();
+    List<Soldier> army;
 
     public Army(List<Soldier> army) {
         this.army = army;
@@ -16,11 +16,13 @@ public class Army implements SpecialAbility{
         }
     }
 
+
     public void attack(){
         System.out.println("--------ATTACK--------");
         for(Soldier soldier:army){
-            if(soldier.getType().matches("OFFENSIVE|ADAPTABLE")){
-                soldier.attack();
+            //System.out.println(soldier.getName());
+            if(soldier instanceof Attack){
+                ((Attack) soldier).attack();
             }
         }
     }
@@ -28,8 +30,8 @@ public class Army implements SpecialAbility{
     public void defend(){
         System.out.println("--------DEFEND--------");
         for(Soldier soldier:army){
-            if(soldier.getType().matches("DEFENSIVE|ADAPTABLE")){
-                soldier.defend();
+            if(soldier instanceof Defend){
+                ((Defend) soldier).defend();
             }
         }
     }
